@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="/static/source/netassistimg.png">
+    
+    <style>
+    body {
+      background-image: url('/static/source/ybg.jpg');
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+      width: 100%;
+      padding: 10px;
+      position: relative;
+    }
+
+    .header h2 {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+    }
+    
+    </style>
+    
+    <title>All Queries</title>
+
+</head>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+<div class="header">
+        <a href="{{url_for('index')}}" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <img src="/static/source/netassistimg.png" alt="NetAssist_LOGO" width="80px" height="80px">
+        </a>
+        <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);"><u>Queries Raised by</u><b> nA </b><u>Users</u></h2>
+</div>
+
+<div style="margin-top: 2%;"></div>
+
+<p style="margin-left: 42%; margin-right: 20%;"><b><u>Stay Updated with Community Issues</u></b></p>
+<p style="margin-left: 20%; margin-right: 20%;">Stay up-to-date with the <b>latest technical questions and challenges</b> posted by nA community members. Browse through, filter, or search for specific issues that match your expertise.
+    <div style="margin-top: 2%; margin-left: 20%;">
+        Engage and <b>help solve queries </b>for a better community experience and reputation.</p>
+    </div>
+
+<hr style="width: 50%; margin-left: 25%;">
+
+<div style="margin-top: 2%;"></div>
+
+    <form action="/allqueries" method="POST">
+
+        <div style="margin-top: 3%;">
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-0">Users' - Raised Queries 🠇</h5>
+
+      {% if posts %}
+      {% for post in posts %}
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#ffc107"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark"><a href="{{url_for('query_detail', post_id=post['ID']) }}" class="link-offset-2 link-underline link-underline-opacity-0" style="color: #000;">{{ post.Title }}</a></strong>
+                    <br>
+                    ➔ {{ post.Content }}
+                <br>
+                    <small>Raised by <b>{{ post.Username }}</b> on <b>{{ post.Date_Posted.strftime('%d-%m-%Y') }}</b></small>
+                  </p>
+                </div>
+
+                {% endfor %}
+                {% endif %}
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#E3E32E"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Spark 3.0 Cannot write non-nullable data to iceberg</strong>
+                    <br>
+                    ➔ I have an avro file which has a field called timeStamp which is a mandatory field without any default value. Which means there is no chance to get this field as null.
+                    <br>
+                    <small>Raised by <b>Mohamed Aziz Tousli - 1 day ago</b></small>
+                  </p>
+                </div>
+
+                
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#614900"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">es6 module loaded through url cannot access "useState" as it is undefined</strong>
+                    <br>
+                    ➔ I am building a React library using webpack, and the library builds correctly into an es6 module. We are then trying to host this module on a CDN so we can import it through a url instead of node_modules.
+                    We then import it like this, and I get the correct component..
+                    <br>
+                    <small>Raised by <b>mplungjan - 3 days ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#9F8960"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Getting information about Dataflow worker crashes</strong>
+                      <br>
+                      ➔ We have a streaming Dataflow pipeline that reads from Kafka developed with the Beam Java SDK using Dataflow Runner v2.
+                      The current version of the pipeline scales down to a single worker, which is great from a cost perspective.
+                      However it seems that the single worker crashes about every hour. Unfortunately we currently only see very indirect signs when this happens.
+                      Memory utilization, throughput go to zero. Backlog spikes and the recovers as the new worker(s) are launched
+                      <br>
+                    <small>Raised by <b>user1589188 - 5 days ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#FF7900"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Spring Integration webflux fails for every other calls.</strong>
+                      <br>
+                      ➔ I have created the following pipeline which is exposing and endpoint to accept POST request and from that it is calling another rest service GET method and respond back. But for some reason which I cannot understand I get bad request for every second calls.
+                      I also created a rest controller to reply to the GET request from this pipeline to test it:
+                      <br>
+                    <small>Raised by <b>Dou Xu-MSFT - 6 days ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#007EFF"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">How to center items in carousel slider?</strong>
+                      <br>
+                      ➔ I am currently working on a country flag slider with around 14 different country flags.
+                      My desired animation is that there is a container/card showing only 3 countries on the card, where it slides after 2 seconds: 
+                      Country on the left moves out of the container Country on the middle moves to the left Country on the right goes to the middle and scales a little bit (so it pops a bit more out) while moving to it.
+                      <br>
+                      <small>Raised by <b>Alex Pappas - 1 week ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#ffc107"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Separate model structs and REST api representations</strong>
+                      <br>
+                      ➔ For example: I have a User struct which is being used with the database and other internal business logic.As you can see, there are Password and LastIP properties in the struct. I do not want to expose those via the REST api. But this is just an example. There might be other things which I don't want to expose later on. And I don't want to use json:"-" either. So I thought to introduce another struct which is only for REST api:
+                      <br>
+                      <small>Raised by <b>serenity8468 - 3 weeks ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#FC5300"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Jenkins Organization Folder for private repositories</strong>
+                      <br>
+                      ➔ I'm trying to setup an Organization Folder job in Jenkins with GitHub SCM and all of my organizations projects are stored in private repositories. I have tried to follow a tutorial on how to setup up one of those folders but in tutorial it uses public repositories and Jenkins doesn't see private ones when scanning. Nevertheless, theres is an option to exlude public/private repos from detection in job configuration which implies that it is capable of working with them.
+                      <br>
+                      <small>Raised by <b>nA User - 5 weeks ago</b></small>
+                    </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#a745d6"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Unable to replace python function definition with mock and unitest</strong>
+                      <br>
+                      ➔ Unable to replace python function definition with mock and unitest. For my integration tests I would like to replace S3 interaction with local files interaction (read css from local and write parquet in local.
+                      <br>
+                      <small>Raised by <b>nA User - 9 weeks ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#C1221C"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">OpenMPI with UCX</strong>
+                      <br>
+                      ➔ I'm trying to execute a C++ code that uses parallel processing. I implemented it using OpenMPI 5.0.5 and while it compiles, I get an error "ucs_handle_error+0x2e4" during execution. The shell command I use with slurm is "mpirun -np 24 $1 $2".
+                      <br>
+                      <small>Raised by <b>nA User - 13 weeks ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#1CC159"/></svg>
+                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                      <strong class="d-block text-dark">Dependency injection with generic repository pattern</strong>
+                      <br>
+                      ➔  I recently wrote a program using the repository pattern to cover CRUD operations. Now, my question is how I can further optimize it and how I can integrate it with dependency injection.
+                      So far, I've only managed to do it using an inelegant method (initializing services in a static class).
+                      <br>
+                      <small>Raised by <b>nA User - 16 weeks ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#8080ff"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Flask and CSRF tokens</strong>
+                    <br>
+                    ➔ I'm trying to use csrf tokens with my flask app but i noticed after a little bit of the site being open it wouldn't work so I did a little testing and found out its because of the csrf tokens expiring so I tried generating a new one every request(which is what I want, so people can't use the same one over and over) but it's still not working
+                    <br>
+                    <small>Raised by <b>nA User - 3 months ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#808000"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Azure Logic App returns metadata instead of SQL query results when invoked via HTTP trigger</strong>
+                    <br>
+                    ➔ I'm working with an Azure Logic App that is supposed to execute a SQL query and return the results when triggered via an HTTP GET request. However, instead of receiving the SQL query results, I'm getting metadata or properties of the response.
+                    <br>
+                    <small>Raised by <b>nA User - 6 months ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#FFF780"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">How can I require that a GitHub contributor write a PR comment with certain text before the "Merge" button is enabled?</strong>
+                    <br>
+                    ➔ I want to prevent a PR from being merge-able until the PR's author creates a specific comment on the PR, something like "It's my turn in the queue". This is so that they acknowledge that they've joined our team's Slack queue for merging into main.
+                    <br>
+                    <small>Raised by <b>nA User - 10 months ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#66de78"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Unity new input system generate C# class without action map</strong>
+                    <br>
+                    ➔ I use it to generate a C# class named PlayerControls. I new PlayerControls in the other script, but it does not include the definition of Player.
+                    Why the script does not include the action map? How can I fix it?
+                    <br>
+                    <small>Raised by <b>nA User - 1 year ago</b></small>
+                </div>
+
+                
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#950606"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">pivot(), group_by() and summarise() with nested data</strong>
+                    <br>
+                    ➔ How to read:
+                    Each row is a traveler. For example, the third row is a traveler who stopped in New York and Los Angeles. During the first stop in New York, she ate a pear. During the second stop in Los Angeles, she ate an apple and a pear.
+                    <br>
+                    <small>Raised by <b>nA User - 1 year ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#954E06"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Equo Chromium - SDK dependencies</strong>
+                    <br>
+                    ➔ I am now trying to implement communication between Java and Javascript, and my question is the following : communicating between Java and Javascript (especially triggering Java from Javascript), requires the comm API, which is part of the SDK, right ?
+                    <br>
+                    <small>Raised by <b>nA User - 1 year ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#069595"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">Problems with logic of how to create users with different type of data with jwt in springboot api</strong>
+                    <br>
+                    ➔ I have a table called users, which already has the jwt token logic and all of that, the table has username, password, email and status (so that I can see if the user is active or not instead of straight up deleting it from the db). That table works for one type of user, but I have more than one, so I have another table called admins which only adds the company they work for, I have a veterinary one that adds more data, and a client one which adds different data.
+                    Basically the 3 tables extend from users, but I don't understand how I can make it so that the login for say, the client, fills up the data in user, and generates the jwt token and also fills up the data in the client table in the db
+                    <br>
+                    <small>Raised by <b>nA User - 1 year ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#FF8A8A"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">ESP32 online builded firmware can't boot</strong>
+                    <br>
+                    ➔ I tried to install nodemcu firmware to ESP32 C3 super mini board, with firmwares builded on https://nodemcu-build.com from dev-esp32-idf3-final branch. After flashed, the serial console outputs very quickly:
+                    <br>
+                    <small>Raised by <b>nA User - 1 year ago</b></small>
+                </div>
+
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#4E9506"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">curl_easy_perform is crashing at poll()</strong>
+                    <br>
+                    ➔ Can someone explain the reason for this?<br>
+                    I am using curl_easy_perform to transfer a file to remote server. The process invoking the curl library is crashing.
+                    <br>
+                    <small>Raised by <b>nA User - 2 years ago</b></small>
+                </div>
+
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="22" height="22" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#8E0603"/></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-dark">SDL3 Texture Create returns always NULL</strong>
+                    <br>
+                    ➔ I have a problem in my c++ SDL3 android project: Every time I try to create a texture it returns NULL, and if I call SDL_GetError() it says absolutely nothing. And I tried everything:
+                    <br>
+                    <small>Raised by <b>nA User - 2 years ago</b></small>
+                </div>
+                
+                </form>
+
+
+                <small class="d-block text-end mt-3">
+                  <a href="{{url_for('allqueries')}}">All Raised Queries</a>
+                </small>
+               
+              </div>
+
+              <h3 style="margin-left: 42%; margin-top: 5%;"><b>Seeking Assistance?</b></h3>
+              
+              <div class="d-grid gap-2 col-3 mx-auto">
+                  <form action="{{ url_for('postquery') }}">
+                  <button type="submit" class="btn btn-outline-dark btn-lg" style="box-shadow: 2px 2px 5px rgba(0.2, 0.2, 0.2, 0.2); margin-top: 5%; width: 100%;">Raise Query ➔</button>
+                  </form>
+
+                <div style="margin-bottom: 10%;"></div>
+              
+              </div>
+
+
+</body>
+</html>
