@@ -271,7 +271,7 @@ def updateaccount():
 def faqs():
     return render_template('faqs.html')
 
-app.route('/about/')
+@app.route('/about/')
 def about():
     return render_template('about.html')
 
@@ -294,3 +294,4 @@ def notifications():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
