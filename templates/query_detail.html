@@ -57,7 +57,7 @@
     {% if posts %}
     {% for post in posts %}
 
-    <form action="{{ url_for('query_detail', post_id=post['ID']) }}" method="GET">
+    <form action="{{ url_for('query_detail', post_id=post['id']) }}" method="GET">
     
         <div style="margin-top: 2%;">
             <h3 style="margin-left: 5%;"><b><u>Query</u>:</b> {{ post.title }}</h3>
@@ -107,3 +107,4 @@
 
 </body>
 </html>
+
